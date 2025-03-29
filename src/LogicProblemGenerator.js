@@ -111,13 +111,13 @@ function LogicProblemGenerator() {
                     question_num: questionNum,
                     rule_num: ruleNum,
                 };
-                const response = await axios.post('http://127.0.0.1:5000/generate', payload);
+                const response = await axios.post('https://logicgen.onrender.com/generate', payload);
                 setTeacherMessage(response.data.message || '参数更新成功');
                 setError(null);
             } else {
                 // 学生模式：只需输入学号，生成题目
                 const payload = { student_id: studentId };
-                const response = await axios.post('http://127.0.0.1:5000/generate', payload);
+                const response = await axios.post('https://logicgen.onrender.com/generate', payload);
                 setQuestions(response.data.questions);
                 setError(null);
             }
